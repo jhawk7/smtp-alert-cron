@@ -1,5 +1,5 @@
 services:
-  braves-alert:
+  smtp-alert:
     image: jhawk7/smtp-alert:latest
     build: .
     env_file:
