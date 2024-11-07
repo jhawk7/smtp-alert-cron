@@ -1,0 +1,7 @@
+services:
+  braves-alert:
+    image: jhawk7/smtp-alert:latest
+    build: .
+    env_file:
+      - .env
+    restart: on-failure

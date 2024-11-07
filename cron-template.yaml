@@ -1,0 +1,42 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: job
+  namespace: cron
+spec:
+  schedule: "0 9 6 */3 *"  # Run every quater on the 6th day at 9 ET; m h dom mon dow
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: job
+            image: jhawk7/smtp-alert:latest
+            imagePullPolicy: IfNotPresent
+            envFrom:
+            - secretRef:
+                name: smtp-cron-secret
+            - secretRef:
+                name: job-secret
+          restartPolicy: OnFailure
+---
+#reusable for future smtp crons
+apiVersion: v1
+kind: Secret
+metadata:
+  name: smtp-cron-secret
+  namespace: cron
+type: Opaque
+data:
+  EMAIL:
+  PASS:
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: job-secret
+  namespace: cron
+type: Opaque
+data:
+  RECIPIENTS: 
+  MESSAGE:
