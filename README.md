@@ -1,4 +1,4 @@
-# SMTP-Alert-Cron ![Python](https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54) ![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=flat&logo=kubernetes&logoColor=white)
+# SMTP-Alert-Cron ![Python](https://img.shields.io/badge/python-3670A0?style=flat&logo=python&logoColor=ffdd54)![Kubernetes](https://img.shields.io/badge/kubernetes-%23326ce5.svg?style=flat&logo=kubernetes&logoColor=white)
 This is a python script for sending email alerts to recipients.
 I got tired of creating new kubernetes cron jobs, so I configured this script to take in parameters to meet any message requirements that I want to be alerted about.
 - This script is dockerized and able to run as a **cron job** in kubernetes via the `cron-template.yaml`. 
